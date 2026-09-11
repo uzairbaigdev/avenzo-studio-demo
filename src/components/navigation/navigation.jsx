@@ -1,5 +1,6 @@
 import logo from "../../assets/avenzo-logo-transparent.png";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const ACTIVE_LINK_CLASSES =
   "relative inline-flex items-center rounded-full px-5 py-2 text-sm font-medium text-[#141008] bg-gradient-to-b from-[#F3CE8E] to-[#C6922E] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_4px_14px_rgba(217,169,78,0.35)] transition-transform duration-200";
@@ -18,6 +19,8 @@ const NAV_LINKS = [
 export default function Navigation() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const activeLink =
     NAV_LINKS.find((link) => link.path === location.pathname)?.label ?? "Home";
 
@@ -36,6 +39,7 @@ export default function Navigation() {
           onClick={(e) => {
             e.preventDefault();
             navigate("/");
+            setMobileMenuOpen(false);
           }}
           className="group relative flex items-center gap-3 shrink-0"
         >
@@ -102,7 +106,11 @@ export default function Navigation() {
         </div>
 
         {/* Mobile menu button */}
-        <button className="md:hidden relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-neutral-200 transition-colors duration-200 hover:border-[#D9A94E]/50">
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-neutral-200 transition-colors duration-200 hover:border-[#D9A94E]/50"
+          aria-label="Toggle Menu"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -111,10 +119,63 @@ export default function Navigation() {
             stroke="currentColor"
             strokeWidth={1.5}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+            {mobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+            )}
           </svg>
         </button>
       </nav>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-black/95 px-6 py-6 backdrop-blur-xl transition-all">
+          <ul className="flex flex-col space-y-3">
+            {NAV_LINKS.map((link) => (
+              <li key={link.path}>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(link.path);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                    activeLink === link.label
+                      ? "bg-gradient-to-r from-[#F3CE8E] to-[#C6922E] text-[#141008]"
+                      : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-6 pt-6 border-t border-white/10 flex flex-col gap-4">
+            <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.06] px-3 py-2 font-mono text-xs text-[#D9A94E] w-fit">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D9A94E] opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#D9A94E]" />
+              </span>
+              status: available
+            </div>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/contact");
+                setMobileMenuOpen(false);
+              }}
+              className="flex h-12 w-full items-center justify-center rounded-full bg-gradient-to-r from-[#F3CE8E] via-[#D9A94E] to-[#8a6a2c] text-sm font-medium text-[#141008] shadow-[0_6px_24px_rgba(217,169,78,0.3)]"
+            >
+              Get in touch
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
