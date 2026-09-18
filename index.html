@@ -7,7 +7,64 @@
     <title>avenzo-studiop-portfolio</title>
   </head>
   <body>
+    <div id="app-skeleton" aria-busy="true" aria-live="polite" style="position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;background:#050505;color:#fff;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 20%, rgba(217,169,78,.14), transparent 28%), rgba(5,5,5,1);"></div>
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh;padding:28px 24px 40px;box-sizing:border-box;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 8px 20px;">
+          <div style="width:120px;height:18px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+          <div style="display:flex;gap:12px;">
+            <div style="width:70px;height:10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            <div style="width:70px;height:10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            <div style="width:70px;height:10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center;flex:1;">
+          <div style="display:flex;flex-direction:column;gap:18px;">
+            <div style="width:200px;height:14px;border-radius:999px;background:linear-gradient(90deg, rgba(217,169,78,.16), rgba(217,169,78,.32), rgba(217,169,78,.16));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            <div style="width:min(92%, 600px);height:32px;border-radius:14px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            <div style="width:min(80%, 520px);height:20px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,.07), rgba(255,255,255,.15), rgba(255,255,255,.07));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            <div style="width:min(72%, 480px);height:20px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,.07), rgba(255,255,255,.15), rgba(255,255,255,.07));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            <div style="display:flex;gap:16px;margin-top:8px;">
+              <div style="width:160px;height:44px;border-radius:12px;background:linear-gradient(90deg, rgba(217,169,78,.18), rgba(217,169,78,.36), rgba(217,169,78,.18));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+              <div style="width:160px;height:44px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:center;align-items:center;">
+            <div style="width:min(100%, 420px);aspect-ratio:1/1;border-radius:26px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.14), rgba(255,255,255,.06));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;box-shadow:0 24px 70px rgba(0,0,0,.45);"></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:22px;padding-top:32px;">
+          <div style="height:150px;border-radius:22px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.12), rgba(255,255,255,.06));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+          <div style="height:150px;border-radius:22px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.12), rgba(255,255,255,.06));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+          <div style="height:150px;border-radius:22px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.12), rgba(255,255,255,.06));background-size:200% 100%;animation:skeleton-shimmer 1.4s linear infinite;"></div>
+        </div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <style>
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: #050505;
+        color: #ffffff;
+      }
+
+      body {
+        overflow: auto;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+
+      @keyframes skeleton-shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+    </style>
   </body>
 </html>

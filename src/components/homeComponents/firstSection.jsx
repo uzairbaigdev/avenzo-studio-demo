@@ -3,9 +3,8 @@ import logo from "../../assets/avenzo-logo-transparent.png";
 const ROTATING_WORDS = ["scalable", "reliable", "modern"];
 
 const STATS = [
-  { value: "50+", label: "Projects delivered" },
-  { value: "8+", label: "Years building software" },
-  { value: "20+", label: "Long-term clients" },
+  { value: "10+", label: "Projects delivered" },
+  { value: "2+", label: "Years building software" },
 ];
 
 const TECH_STACK = ["HTML", "CSS", "JavaScript", "React", "Firebase", "Tailwind CSS", "Git", "GitHub"];

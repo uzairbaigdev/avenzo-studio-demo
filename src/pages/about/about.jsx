@@ -26,9 +26,8 @@ function Icon({ children, className = "" }) {
 const ROTATING_WORDS = ["custom", "e-commerce", "business"];
 
 const STATS = [
-  { value: "50+", label: "Projects delivered" },
-  { value: "8+", label: "Years building software" },
-  { value: "20+", label: "Long-term clients" },
+  { value: "10+", label: "Projects delivered" },
+  { value: "2+", label: "Years building software" },
   { value: "99.9%", label: "Uptime guarantee" },
 ];
 
@@ -378,7 +377,6 @@ const MILESTONES = [
     title: "Today",
     description: "Delivering modern web software for international clients.",
     detail: "Expanding long-term retainers and building custom applications across multiple modern tech stacks.",
-    stat: "20+ clients",
     image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=400&q=80",
   },
 ];
@@ -473,7 +471,7 @@ export default function About() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -504,7 +502,19 @@ export default function About() {
   }, [isPaused]);
 
   if (isLoading) {
-    return <Loader />;
+    return (
+      <>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black">
+          <div className="flex flex-col items-center space-y-4">
+            <Loader />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
+              Loading About Page...
+            </p>
+          </div>
+        </div>
+        <Navigation />
+      </>
+    );
   }
 
   return (
@@ -856,7 +866,9 @@ export default function About() {
           </div>
 
           <div className="mx-auto mt-14 max-w-3xl rounded-2xl border border-white/10 bg-[#0B0C0E] p-8 text-center sm:p-10">
-            <span className="text-xs font-mono font-bold text-[#D9A94E]">{MILESTONES[activeMilestone].stat}</span>
+            {MILESTONES[activeMilestone].stat && (
+              <span className="text-xs font-mono font-bold text-[#D9A94E]">{MILESTONES[activeMilestone].stat}</span>
+            )}
             <h3 className="mt-2 text-2xl font-bold text-white">{MILESTONES[activeMilestone].title}</h3>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-neutral-400">
               {MILESTONES[activeMilestone].detail}

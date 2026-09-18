@@ -86,7 +86,7 @@ const MODIFIERS = [
 const PROJECT_DATES = [
   "2026-08-14", "2026-05-20", "2026-02-10",
   "2025-11-05", "2025-08-19", "2025-06-12", "2025-03-22", "2025-01-15",
-  "2024-12-01", "2024-09-18", "2024-07-04", "2024-04-11", "2024-02-02",
+  "2026-12-01", "2026-09-18", "2026-07-04", "2026-04-11", "2026-02-02",
   "2023-10-28", "2023-08-15", "2023-05-30", "2023-03-14", "2023-01-08",
   "2022-11-20", "2022-08-05", "2022-06-17", "2022-03-09",
   "2021-10-14", "2021-07-28", "2021-05-11", "2021-02-19",
@@ -327,7 +327,19 @@ export default function Review() {
   }, [filteredReviews, visibleCount]);
 
   if (pageLoading) {
-    return <Loader />;
+    return (
+      <>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black">
+          <div className="flex flex-col items-center space-y-4">
+            <Loader />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
+              Loading Review Page...
+            </p>
+          </div>
+        </div>
+        <Navigation />
+      </>
+    );
   }
 
   return (
@@ -391,9 +403,9 @@ export default function Review() {
             <div className="flex flex-col items-center border-r border-white/5 last:border-none">
               <div className="flex items-center gap-1.5 text-lg font-black text-white sm:text-2xl">
                 <Clock className="h-5 w-5 text-[#D9A94E]" />
-                <span>2019–2026</span>
+                <span>2024–2026</span>
               </div>
-              <span className="text-[11px] uppercase tracking-wider text-neutral-500">7 Years Experience</span>
+              <span className="text-[11px] uppercase tracking-wider text-neutral-500">2 Years Experience</span>
             </div>
 
             <div className="flex flex-col items-center border-r border-white/5 last:border-none">

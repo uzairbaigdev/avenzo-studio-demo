@@ -3,7 +3,7 @@ import logo from "../../assets/avenzo-logo-transparent.png";
 
 // Total time the loader stays on screen, and how long before completion
 // the fade-out transition begins.
-const DEFAULT_DURATION = 5000;
+const DEFAULT_DURATION = 3000;
 const FADE_LEAD = 300;
 
 function easeOutCubic(t) {

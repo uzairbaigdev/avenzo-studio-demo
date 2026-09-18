@@ -58,6 +58,16 @@ export default function SixthSection() {
           </div>
         </div>
 
+        <a
+          href="https://www.google.com/maps/place/AVENZO+STUDIO+(Software+Company)/@24.8684796,67.0806772,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fd81696f527:0xc7778de435ecb796!8m2!3d24.8684748!4d67.0832521!16s%2Fg%2F11zxmq_qdt?entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noreferrer"
+          className="absolute right-6 top-6 z-10 inline-flex items-center gap-2 rounded-full border border-[#D9A94E]/60 bg-black/90 px-4 py-2.5 text-sm font-semibold text-[#F3CE8E] shadow-2xl backdrop-blur-md transition-colors duration-300 hover:border-[#D9A94E] hover:bg-[#D9A94E] hover:text-black"
+        >
+          <MapPinIcon className="h-4 w-4" />
+          View on map
+        </a>
+
         <iframe
           title="Our Location Map"
           src={HQ_LOCATION.mapSrc}

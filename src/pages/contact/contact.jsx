@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "../../components/navigation/navigation.jsx";
 import Loader from "../../components/loader/loader.jsx";
+import SixthSection from "../../components/homeComponents/sixthSection.jsx";
 import logo from "../../assets/avenzo-logo-transparent.png";
 import {
   Phone,
   AlertTriangle,
-  MapPin,
   Clock,
   ShieldCheck,
   ChevronDown,
@@ -21,7 +21,6 @@ export default function Contact() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeHub, setActiveHub] = useState("karachi");
   const [pkTime, setPkTime] = useState("");
 
   // Scope Estimator State
@@ -117,21 +116,6 @@ export default function Contact() {
     return `$${Math.round(total)} USD`;
   };
 
-  const hubs = {
-    karachi: {
-      title: "Primary Tech Hub (PKT)",
-      address: "Office #202, 2nd Floor, M Yousuf Chamber, Shahrah-e-Faisal, Karachi",
-      mapSrc: "https://maps.google.com/maps?q=24.8684446,67.08328&hl=en&z=18&output=embed",
-      status: "Studio Active",
-    },
-    global: {
-      title: "Global Remote Desk",
-      address: "Distributed Engineering & Incident Response Coverage",
-      mapSrc: "https://maps.google.com/maps?q=0,0&hl=en&z=2&output=embed",
-      status: "24/7 SLA Operations",
-    },
-  };
-
   const faqs = [
     {
       q: "What is the typical response time for inquiries?",
@@ -153,14 +137,17 @@ export default function Contact() {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-        <div className="flex flex-col items-center space-y-4">
-          <Loader className="h-16 w-16 animate-spin" />
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
-            Loading Contact Page...
-          </p>
+      <>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black">
+          <div className="flex flex-col items-center space-y-4">
+            <Loader className="h-16 w-16 animate-spin" />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
+              Loading Contact Page...
+            </p>
+          </div>
         </div>
-      </div>
+        <Navigation />
+      </>
     );
   }
 
@@ -279,7 +266,7 @@ export default function Contact() {
                 <Layers className="h-6 w-6" />
               </div>
               <div>
-                <div className="text-xl font-bold text-white">50+</div>
+                <div className="text-xl font-bold text-white">10+</div>
                 <div className="text-xs text-neutral-400">Shipped Platforms</div>
               </div>
             </div>
@@ -509,52 +496,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Interactive Office Hub Switcher & Map Embed */}
-      <section className="relative h-[500px] w-full border-t border-white/10">
-        <div className="absolute top-6 left-6 z-10 hidden max-w-md flex-col gap-3 rounded-2xl border border-white/10 bg-black/90 p-5 shadow-2xl backdrop-blur-md sm:flex">
-          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#D9A94E]">Operational Hubs</span>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setActiveHub("karachi")}
-                className={`rounded-lg px-2.5 py-1 text-[11px] font-bold ${
-                  activeHub === "karachi" ? "bg-[#D9A94E] text-black" : "bg-white/10 text-white"
-                }`}
-              >
-                Karachi
-              </button>
-              <button
-                onClick={() => setActiveHub("global")}
-                className={`rounded-lg px-2.5 py-1 text-[11px] font-bold ${
-                  activeHub === "global" ? "bg-[#D9A94E] text-black" : "bg-white/10 text-white"
-                }`}
-              >
-                Global
-              </button>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 pt-1">
-            <div className="rounded-xl bg-[#D9A94E] p-2.5 text-black">
-              <MapPin className="h-5 w-5 text-black" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white">{hubs[activeHub].title}</h4>
-              <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                {hubs[activeHub].address}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <iframe
-          title="AVENZO STUDIO Location Map"
-          src={hubs[activeHub].mapSrc}
-          className="h-full w-full border-0 grayscale contrast-125 opacity-90 transition-all duration-500 hover:grayscale-0"
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-      </section>
+      <SixthSection />
     </main>
   );
 }

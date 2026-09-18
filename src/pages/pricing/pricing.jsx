@@ -182,11 +182,56 @@ const PRICING_FAQS = [
   },
 ];
 
+const CURRENCY_OPTIONS = {
+  USD: { name: "US Dollar", rate: 1 },
+  PKR: { name: "Pakistani Rupee", rate: 278.5 },
+  EUR: { name: "Euro", rate: 0.92 },
+  GBP: { name: "British Pound", rate: 0.79 },
+  AED: { name: "UAE Dirham", rate: 3.67 },
+  SAR: { name: "Saudi Riyal", rate: 3.75 },
+  CAD: { name: "Canadian Dollar", rate: 1.37 },
+  AUD: { name: "Australian Dollar", rate: 1.53 },
+  INR: { name: "Indian Rupee", rate: 83.1 },
+  JPY: { name: "Japanese Yen", rate: 150.2 },
+  CNY: { name: "Chinese Yuan", rate: 7.24 },
+  CHF: { name: "Swiss Franc", rate: 0.88 },
+  NZD: { name: "New Zealand Dollar", rate: 1.66 },
+  SGD: { name: "Singapore Dollar", rate: 1.34 },
+  MYR: { name: "Malaysian Ringgit", rate: 4.72 },
+  BDT: { name: "Bangladeshi Taka", rate: 117.5 },
+  QAR: { name: "Qatari Riyal", rate: 3.64 },
+  KWD: { name: "Kuwaiti Dinar", rate: 0.31 },
+  OMR: { name: "Omani Rial", rate: 0.38 },
+  TRY: { name: "Turkish Lira", rate: 32.2 },
+  ZAR: { name: "South African Rand", rate: 18.3 },
+};
+
+function findCurrency(value) {
+  const normalizedValue = value.trim().toLowerCase();
+  return Object.entries(CURRENCY_OPTIONS).find(([code, currency]) =>
+    code.toLowerCase() === normalizedValue || currency.name.toLowerCase() === normalizedValue
+  )?.[0] || null;
+}
+
+function formatConvertedPrice(price, currencyCode) {
+  const basePrice = Number.parseFloat(price.replace(/[^0-9.]/g, ""));
+  const convertedPrice = basePrice * CURRENCY_OPTIONS[currencyCode].rate;
+
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currencyCode,
+    currencyDisplay: "symbol",
+    maximumFractionDigits: 2,
+  }).format(convertedPrice);
+}
+
 /* ---------- MAIN COMPONENT ---------- */
 
 export default function Pricing() {
   const [isLoading, setIsLoading] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [currencyInput, setCurrencyInput] = useState("USD");
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
 
   useEffect(() => {
     document.title = "Services & Pricing — Avenzo Studio";
@@ -209,16 +254,31 @@ export default function Pricing() {
     return <span className="font-medium text-neutral-200 block text-center">{value}</span>;
   };
 
+  const handleCurrencyChange = (event) => {
+    const value = event.target.value;
+    setCurrencyInput(value);
+    const currencyCode = findCurrency(value);
+
+    if (currencyCode) {
+      setSelectedCurrency(currencyCode);
+    }
+  };
+
+  const currencyIsSupported = Boolean(findCurrency(currencyInput));
+
   if (isLoading) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-        <div className="flex flex-col items-center space-y-4">
-          <Loader />
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
-            Loading Pricing Matrix...
-          </p>
+      <>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black">
+          <div className="flex flex-col items-center space-y-4">
+            <Loader />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
+              Loading Pricing Page...
+            </p>
+          </div>
         </div>
-      </div>
+        <Navigation />
+      </>
     );
   }
 
@@ -240,6 +300,33 @@ export default function Pricing() {
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-neutral-400 sm:text-lg">
             Compare features on the left against clear values in USD across Normal, Standard, and Premium tiers.
           </p>
+          <div className="mx-auto mt-8 max-w-sm text-left">
+            <label htmlFor="pricing-currency" className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-[#D9A94E]">
+              Display currency
+            </label>
+            <div className="relative">
+              <input
+                id="pricing-currency"
+                list="pricing-currency-options"
+                value={currencyInput}
+                onChange={handleCurrencyChange}
+                placeholder="Enter currency, e.g. PKR"
+                aria-describedby="pricing-currency-status"
+                className="h-12 w-full rounded-xl border border-white/15 bg-white/[0.06] px-4 pr-12 text-sm font-medium text-white outline-none transition-colors placeholder:text-neutral-500 focus:border-[#D9A94E] focus:ring-2 focus:ring-[#D9A94E]/20"
+              />
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm text-[#D9A94E]">↗</span>
+            </div>
+            <datalist id="pricing-currency-options">
+              {Object.entries(CURRENCY_OPTIONS).map(([code, currency]) => (
+                <option key={code} value={code}>{currency.name}</option>
+              ))}
+            </datalist>
+            <p id="pricing-currency-status" className={`mt-2 text-xs ${currencyIsSupported ? "text-neutral-500" : "text-amber-400"}`}>
+              {currencyIsSupported
+                ? `Prices shown in ${CURRENCY_OPTIONS[selectedCurrency].name} (${selectedCurrency}).`
+                : "Enter a currency code or full currency name from the list."}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -277,7 +364,9 @@ export default function Pricing() {
                             </span>
                           )}
                           <div className="text-base font-bold text-white text-center">{tier.name}</div>
-                          <div className="mt-1 text-xl font-extrabold text-[#D9A94E] text-center">{tier.price}</div>
+                          <div className="mt-1 text-xl font-extrabold text-[#D9A94E] text-center">
+                            {formatConvertedPrice(tier.price, selectedCurrency)}
+                          </div>
                         </th>
                       ))}
                     </tr>
@@ -300,27 +389,6 @@ export default function Pricing() {
                       </tr>
                     ))}
                   </tbody>
-                  <tfoot>
-                    <tr className="border-t border-white/10 bg-white/[0.02]">
-                      <td className="p-5 border-r border-white/10 font-bold text-neutral-400 text-center">
-                        Ready to Begin?
-                      </td>
-                      {category.tiers.map((tier, tIdx) => (
-                        <td key={tIdx} className="p-5 text-center">
-                          <a
-                            href="/contact"
-                            className={`inline-flex h-10 w-full items-center justify-center rounded-full text-xs font-semibold transition-all duration-300 ${
-                              tier.recommended
-                                ? "bg-gradient-to-r from-[#F3CE8E] via-[#D9A94E] to-[#8a6a2c] text-black shadow-[0_4px_15px_rgba(217,169,78,0.25)] hover:scale-105"
-                                : "border border-white/20 bg-white/5 text-white hover:border-[#D9A94E] hover:text-[#D9A94E]"
-                            }`}
-                          >
-                            Select {tier.name}
-                          </a>
-                        </td>
-                      ))}
-                    </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>

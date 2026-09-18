@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/avenzo-logo-transparent.png";
 import Navigation from "../../components/navigation/navigation.jsx";
 import SecondSection from "../../components/homeComponents/secondSection.jsx";
@@ -89,9 +90,8 @@ const ChevronDown = (props) => (
 /* ---------- data — sourced directly from about.jsx, nothing invented ---------- */
 
 const STATS = [
-  { value: "50+", label: "Projects delivered" },
-  { value: "8+", label: "Years building software" },
-  { value: "20+", label: "Long-term clients" },
+  { value: "10+", label: "Projects delivered" },
+  { value: "2+", label: "Years building software" },
   { value: "99.9%", label: "Uptime guarantee" },
 ];
 
@@ -345,6 +345,7 @@ export default function Services() {
   const [openWhyIndex, setOpenWhyIndex] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
   const statsRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -383,7 +384,7 @@ export default function Services() {
     document.title = "Services — Avenzo Studio | Custom Web Development";
 
     const DESCRIPTION =
-      "Avenzo Studio builds custom websites, portfolios, e-commerce platforms, business websites, and automated web solutions using React, Tailwind CSS, Firebase, and Supabase. 50+ projects delivered, 8+ years of experience.";
+      "Avenzo Studio builds custom websites, portfolios, e-commerce platforms, business websites, and automated web solutions using React, Tailwind CSS, Firebase, and Supabase. 10+ projects delivered, 2+ years of experience.";
 
     let meta = document.querySelector('meta[name="description"]');
     const createdMeta = !meta;
@@ -406,7 +407,19 @@ export default function Services() {
   }, []);
 
   if (loading) {
-    return <Loader />;
+    return (
+      <>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black">
+          <div className="flex flex-col items-center space-y-4">
+            <Loader />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">
+              Loading Service Page...
+            </p>
+          </div>
+        </div>
+        <Navigation />
+      </>
+    );
   }
 
   return (
@@ -513,8 +526,8 @@ export default function Services() {
             around each client's actual business — not squeezed into a template. Every project is engineered
             on a modern, production-grade stack — HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Firebase,
             and Supabase — and delivered through a disciplined four-stage process: Discovery, Design,
-            Development, and Launch. Across 8+ years of hands-on engineering, we've shipped 50+ projects for
-            20+ long-term clients while holding a 99.9% uptime guarantee. Clients retain full ownership of
+            Development, and Launch. Across 2+ years of hands-on engineering, we've shipped 10+ projects for
+            holding a 99.9% uptime guarantee. Clients retain full ownership of
             their source code, communicate directly with the engineers building their site, and receive
             clean, documented code built to be maintained and extended long after launch.
           </p>
@@ -658,7 +671,8 @@ export default function Services() {
             type="button"
             className="group relative mt-8 inline-flex h-12 items-center justify-center rounded-full p-[1px] bg-gradient-to-r from-[#F3CE8E] via-[#D9A94E] to-[#8a6a2c] shadow-[0_6px_24px_rgba(217,169,78,0.3)] transition-all duration-300 hover:scale-105"
           >
-            <span className="flex h-full w-full items-center justify-center rounded-full bg-black px-8 text-sm font-semibold text-[#F0C382] transition-colors duration-300 group-hover:bg-transparent group-hover:text-[#141008]">
+            <span onClick={()=> navigate("/contact")}
+             className="flex h-full w-full items-center justify-center rounded-full bg-black px-8 text-sm font-semibold text-[#F0C382] transition-colors duration-300 group-hover:bg-transparent group-hover:text-[#141008]">
               Book a call
             </span>
           </button>
