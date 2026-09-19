@@ -91,11 +91,11 @@ export default function Contact() {
 
   // Exact Pricing Matrix
   const SERVICE_PRICES = {
-    "Portfolio Websites": { normal: 54, standard: 108, premium: 180 },
-    "Business Websites": { normal: 126, standard: 252, premium: 432 },
-    "Custom Web Applications": { normal: 216, standard: 432, premium: 791 },
-    "E-Commerce Stores": { normal: 162, standard: 324, premium: 576 },
-    "Web Automation & Workflows": { normal: 90, standard: 180, premium: 342 },
+    "Portfolio Websites": { normal: 5.4, standard: 10.8, premium: 18 },
+    "Business Websites": { normal: 12.6, standard: 25.2, premium: 43.2 },
+    "Custom Web Applications": { normal: 21.6, standard: 43.2, premium: 79.1 },
+    "E-Commerce Stores": { normal: 16.2, standard: 32.4, premium: 57.6 },
+    "Web Automation & Workflows": { normal: 9, standard: 18, premium: 34.2 },
   };
 
   const calculateEstimate = () => {

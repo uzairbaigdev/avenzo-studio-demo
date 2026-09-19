@@ -28,7 +28,7 @@ const ROTATING_WORDS = ["custom", "e-commerce", "business"];
 const STATS = [
   { value: "10+", label: "Projects delivered" },
   { value: "2+", label: "Years building software" },
-  { value: "99.9%", label: "Uptime guarantee" },
+  { value: "100%", label: "uptime guarantee" },
 ];
 
 const LOGO_MARQUEE = [
@@ -41,10 +41,10 @@ const LOGO_MARQUEE = [
 ];
 
 const FLOATING_BADGES = [
-  { label: "React.js", top: "6%", left: "-8%", duration: 5, delay: 0 },
-  { label: "Firebase", top: "68%", left: "-12%", duration: 6, delay: 0.6 },
-  { label: "Supabase", top: "-6%", left: "62%", duration: 5.5, delay: 1.1 },
-  { label: "JavaScript", top: "78%", left: "70%", duration: 6.5, delay: 0.3 },
+  { label: "JavaScript", top: "-6%", left: "62%", duration: 5.5, delay: 0 },
+  { label: "Python", top: "68%", left: "-12%", duration: 6, delay: 0.6 },
+  { label: "C++", top: "78%", left: "70%", duration: 6.5, delay: 0.3 },
+  { label: "React", top: "6%", left: "-8%", duration: 5, delay: 1.1 },
 ];
 
 const SHOWCASE_CARD_BASE_CLASSES =
@@ -108,7 +108,13 @@ function ServicesCardContent() {
 }
 
 function StackCardContent() {
-  const stack = ["HTML5", "CSS3", "JavaScript", "React.js", "Firebase", "Supabase"];
+  const stack = [
+    "JavaScript", "Python", "C++", "React", "AI Integration", "Node.js", "Express.js", "MongoDB",
+    "Firebase", "Supabase", "Prompt Engineering", "AI Tools & Workflows", "Tailwind CSS", "Bootstrap",
+    "Postman", "Git & GitHub", "SEO",
+    "Website Optimization", "Website Consulting", "Blogging & Content Writing", "HTML",
+    "CSS", "Django", "Database Design"
+  ];
   return (
     <div className="relative flex h-[calc(100%-45px)] flex-col justify-end p-6 overflow-hidden group">
       <img
@@ -205,12 +211,37 @@ const AutomationIcon = (props) => (
   </Icon>
 );
 
-const SERVICE_CATEGORIES = ["All", "Web", "Commerce", "Automation"];
+const ChatIcon = (props) => (
+  <Icon {...props}>
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+  </Icon>
+);
+
+const SpeedIcon = (props) => (
+  <Icon {...props}>
+    <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+  </Icon>
+);
+
+const OwnershipIcon = (props) => (
+  <Icon {...props}>
+    <rect x="3" y="7" width="18" height="13" rx="2" />
+    <path d="M8 7V5a4 4 0 0 1 8 0v2" />
+  </Icon>
+);
+
+const MaintainIcon = (props) => (
+  <Icon {...props}>
+    <path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4z" />
+  </Icon>
+);
+
+const SERVICE_CATEGORIES = ["All", "Web", "Commerce", "Development", "Data", "Marketing", "Automation"];
 
 const SERVICES = [
   {
     id: "custom",
-    title: "Custom Websites",
+    title: "Custom Website Development",
     description: "Built around your business, not a template. Every structural and design decision starts from what your users actually need.",
     Icon: CustomSiteIcon,
     featured: true,
@@ -221,7 +252,7 @@ const SERVICES = [
   },
   {
     id: "portfolio",
-    title: "Personal Portfolios",
+    title: "Portfolio Development",
     description: "Clean case studies and fast load times in a design that puts your work front and center.",
     Icon: PortfolioIcon,
     category: "Web",
@@ -231,7 +262,7 @@ const SERVICES = [
   },
   {
     id: "ecommerce",
-    title: "E-Commerce Websites",
+    title: "E-Commerce Website Development",
     description: "Product catalogs, cart, and checkout built to handle real inventory and real customers.",
     Icon: CartIcon,
     category: "Commerce",
@@ -241,7 +272,7 @@ const SERVICES = [
   },
   {
     id: "business",
-    title: "Business Websites",
+    title: "Business Website Development",
     description: "A site your company can point clients to with confidence — services, credibility, contact.",
     Icon: BriefcaseIcon,
     category: "Web",
@@ -251,7 +282,7 @@ const SERVICES = [
   },
   {
     id: "automation",
-    title: "Automated Websites",
+    title: "Automated Website Solutions",
     description: "Forms that trigger emails, data that syncs to a database — manual steps, wired away.",
     Icon: AutomationIcon,
     category: "Automation",
@@ -259,17 +290,155 @@ const SERVICES = [
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
     details: ["Form-to-email automation", "Database sync on submit", "Custom admin dashboards"],
   },
+  {
+    id: "seo",
+    title: "SEO Strategy & Implementation",
+    description: "Search-focused technical foundations and content structure that help the right audience discover your website.",
+    Icon: BriefcaseIcon,
+    category: "Marketing",
+    metric: "Search Ready",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    details: ["Technical SEO foundations", "Search-friendly page structure", "Performance and visibility review"],
+  },
+  {
+    id: "ai-integration-service",
+    title: "AI Integration",
+    description: "Useful AI capabilities connected to your website, product, or internal workflow with clear human control.",
+    Icon: AutomationIcon,
+    category: "Automation",
+    metric: "Practical AI",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80",
+    details: ["AI feature planning", "Model and API integration", "Reliable output workflows"],
+  },
+  {
+    id: "ai-agents-integration",
+    title: "AI Agents Integration",
+    description: "Task-focused AI agents that connect tools, follow defined workflows, and support your team without unnecessary complexity.",
+    Icon: ChatIcon,
+    category: "Automation",
+    metric: "Workflow Agents",
+    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=600&q=80",
+    details: ["Agent workflow design", "Tool and data connections", "Guardrails and handoff logic"],
+  },
+  {
+    id: "marketing",
+    title: "Digital Marketing",
+    description: "Clear digital marketing foundations that connect your website, message, and audience to measurable goals.",
+    Icon: BriefcaseIcon,
+    category: "Marketing",
+    metric: "Growth Focused",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+    details: ["Digital presence planning", "Campaign-ready landing pages", "Conversion-focused messaging"],
+  },
+  {
+    id: "database-integration",
+    title: "Database Integration",
+    description: "Secure connections between your application, data sources, and business workflows for reliable information flow.",
+    Icon: MaintainIcon,
+    category: "Data",
+    metric: "Connected Data",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80",
+    details: ["Database connection planning", "Secure data synchronization", "Reliable read and write workflows"],
+  },
+  {
+    id: "frontend-development",
+    title: "Frontend Development",
+    description: "Responsive, accessible interfaces built for clarity, speed, and consistent behavior across modern devices.",
+    Icon: CustomSiteIcon,
+    category: "Development",
+    metric: "Responsive UI",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+    details: ["Component-based interfaces", "Responsive layouts", "Accessible interaction patterns"],
+  },
+  {
+    id: "backend-development",
+    title: "Backend Development",
+    description: "Dependable server-side systems, APIs, and data workflows designed to support real business operations.",
+    Icon: MaintainIcon,
+    category: "Development",
+    metric: "Reliable Systems",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
+    details: ["API and server architecture", "Authentication and permissions", "Database-backed workflows"],
+  },
+  {
+    id: "full-stack-development",
+    title: "Full Stack Development",
+    description: "End-to-end product development connecting polished interfaces, backend services, databases, and deployment.",
+    Icon: AutomationIcon,
+    category: "Development",
+    metric: "End-to-End Build",
+    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=600&q=80",
+    details: ["Frontend and backend delivery", "Integrated data architecture", "Production deployment support"],
+  },
+  {
+    id: "mern-stack-development",
+    title: "MERN Stack Development",
+    description: "Modern JavaScript applications built with MongoDB, Express.js, React, and Node.js as one cohesive stack.",
+    Icon: CustomSiteIcon,
+    category: "Development",
+    metric: "MERN Applications",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+    details: ["MongoDB data modeling", "Express and Node.js APIs", "React application interfaces"],
+  },
+  {
+    id: "data-optimization",
+    title: "Data Optimization",
+    description: "Better-organized data and faster workflows through thoughtful modeling, cleanup, indexing, and reporting foundations.",
+    Icon: AutomationIcon,
+    category: "Data",
+    metric: "Efficient Data",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    details: ["Data structure review", "Query and workflow optimization", "Scalable reporting foundations"],
+  },
+  {
+    id: "content-writing",
+    title: "Blogging & Content Writing",
+    description: "Clear, useful content that explains your value, supports SEO, and gives your audience a reason to trust your brand.",
+    Icon: ChatIcon,
+    category: "Marketing",
+    metric: "Clear Messaging",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdevd2b?auto=format&fit=crop&w=600&q=80",
+    details: ["Blog and article writing", "Website service copy", "SEO-aware content structure"],
+  },
+  {
+    id: "ai-automation-tools",
+    title: "AI & Automation Tools",
+    description: "Practical tool selection and workflow automation that removes repetitive steps while keeping your processes understandable.",
+    Icon: AutomationIcon,
+    category: "Automation",
+    metric: "Smarter Workflows",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    details: ["Tool and workflow audit", "Automation implementation", "Handoff and documentation"],
+  },
 ];
 
-const TECH_CATEGORIES = ["All", "Frontend", "Backend"];
+const TECH_CATEGORIES = ["All", "Frontend", "Backend", "Data", "AI & Automation", "Tools & Integration", "Growth & Content"];
 
 const TECH_STACK = [
-  { id: "html5", label: "HTML5", role: "Semantic markup", category: "Frontend" },
-  { id: "css3", label: "CSS3", role: "Layout & motion", category: "Frontend" },
   { id: "javascript", label: "JavaScript", role: "Interactive logic", category: "Frontend" },
-  { id: "react", label: "React.js", role: "Component UI", category: "Frontend" },
-  { id: "firebase", label: "Firebase", role: "Auth & real-time data", category: "Backend" },
-  { id: "supabase", label: "Supabase", role: "Postgres backend", category: "Backend" },
+  { id: "python", label: "Python", role: "Application development", category: "Backend" },
+  { id: "cpp", label: "C++", role: "High-performance programming", category: "Backend" },
+  { id: "react", label: "React", role: "Component UI", category: "Frontend" },
+  { id: "ai-integration", label: "AI Integration", role: "Connected AI features", category: "AI & Automation" },
+  { id: "nodejs", label: "Node.js", role: "Server-side JavaScript", category: "Backend" },
+  { id: "express", label: "Express.js", role: "API development", category: "Backend" },
+  { id: "django", label: "Django", role: "Python web framework", category: "Backend" },
+  { id: "mongodb", label: "MongoDB", role: "Document database", category: "Data" },
+  { id: "firebase", label: "Firebase", role: "Auth & real-time data", category: "Data" },
+  { id: "supabase", label: "Supabase", role: "Postgres backend", category: "Data" },
+  { id: "database-design", label: "Database Design", role: "Scalable data architecture", category: "Data" },
+  { id: "prompt-engineering", label: "Prompt Engineering", role: "Reliable AI instruction design", category: "AI & Automation" },
+  { id: "ai-tools-workflows", label: "AI Tools & Workflows", role: "Practical AI automation", category: "AI & Automation" },
+  { id: "tailwind-css", label: "Tailwind CSS", role: "Utility-first styling", category: "Tools & Integration" },
+  { id: "bootstrap", label: "Bootstrap", role: "Responsive UI framework", category: "Tools & Integration" },
+  { id: "postman", label: "Postman", role: "API testing & development", category: "Tools & Integration" },
+  { id: "git-github", label: "Git & GitHub", role: "Version control & collaboration", category: "Tools & Integration" },
+  { id: "seo", label: "SEO", role: "Search visibility", category: "Growth & Content" },
+  { id: "website-optimization", label: "Website Optimization", role: "Speed & conversion", category: "Growth & Content" },
+  { id: "website-consulting", label: "Website Consulting", role: "Technical direction", category: "Growth & Content" },
+  { id: "blogging-content", label: "Blogging & Content Writing", role: "Clear, useful content", category: "Growth & Content" },
+  { id: "html", label: "HTML", role: "Semantic markup", category: "Frontend" },
+  { id: "css", label: "CSS", role: "Layout & motion", category: "Frontend" },
 ];
 
 const FAQS = [
@@ -290,31 +459,6 @@ const FAQS = [
     a: "Click 'Book a Call' or reach out through our contact form. We'll set up an initial discovery call to review your scope and provide a fixed quote.",
   },
 ];
-
-const SpeedIcon = (props) => (
-  <Icon {...props}>
-    <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
-  </Icon>
-);
-
-const OwnershipIcon = (props) => (
-  <Icon {...props}>
-    <rect x="3" y="7" width="18" height="13" rx="2" />
-    <path d="M8 7V5a4 4 0 0 1 8 0v2" />
-  </Icon>
-);
-
-const ChatIcon = (props) => (
-  <Icon {...props}>
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-  </Icon>
-);
-
-const MaintainIcon = (props) => (
-  <Icon {...props}>
-    <path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4z" />
-  </Icon>
-);
 
 const WHY_CHOOSE_US = [
   {
@@ -353,7 +497,7 @@ const MILESTONES = [
     title: "Founded",
     description: "Started as a specialized development practice taking on custom web applications.",
     detail: "Avenzo Studio began as a dedicated engineering setup focused on delivering clean, hand-coded web applications.",
-    stat: "2019",
+    stat: "2024",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
   },
   {
@@ -708,7 +852,7 @@ export default function About() {
               What We Build
             </p>
             <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-              Five kinds of websites, one disciplined process
+              AVENZO STUDIO Services
             </h2>
           </div>
 

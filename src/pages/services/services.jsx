@@ -92,7 +92,7 @@ const ChevronDown = (props) => (
 const STATS = [
   { value: "10+", label: "Projects delivered" },
   { value: "2+", label: "Years building software" },
-  { value: "99.9%", label: "Uptime guarantee" },
+  { value: "100%", label: "uptime guarantee" },
 ];
 
 const LOGO_MARQUEE = [
@@ -100,12 +100,12 @@ const LOGO_MARQUEE = [
   "Hyperion Logistics", "Vortex Commerce", "Crestview Labs",
 ];
 
-const SERVICE_CATEGORIES = ["All", "Web", "Commerce", "Automation"];
+const SERVICE_CATEGORIES = ["All", "Web", "Commerce", "Development", "Data", "Marketing", "Automation"];
 
 const SERVICES = [
   {
     id: "custom",
-    title: "Custom Websites",
+    title: "Custom Website Development",
     description: "Built around your business, not a template. Every structural and design decision starts from what your users actually need.",
     Icon: CustomSiteIcon,
     category: "Web",
@@ -115,7 +115,7 @@ const SERVICES = [
   },
   {
     id: "portfolio",
-    title: "Personal Portfolios",
+    title: "Portfolio Development",
     description: "Clean case studies and fast load times in a design that puts your work front and center.",
     Icon: PortfolioIcon,
     category: "Web",
@@ -125,7 +125,7 @@ const SERVICES = [
   },
   {
     id: "ecommerce",
-    title: "E-Commerce Websites",
+    title: "E-Commerce Website Development",
     description: "Product catalogs, cart, and checkout built to handle real inventory and real customers.",
     Icon: CartIcon,
     category: "Commerce",
@@ -135,7 +135,7 @@ const SERVICES = [
   },
   {
     id: "business",
-    title: "Business Websites",
+    title: "Business Website Development",
     description: "A site your company can point clients to with confidence — services, credibility, contact.",
     Icon: BriefcaseIcon,
     category: "Web",
@@ -145,7 +145,7 @@ const SERVICES = [
   },
   {
     id: "automation",
-    title: "Automated Websites",
+    title: "Automated Website Solutions",
     description: "Forms that trigger emails, data that syncs to a database — manual steps, wired away.",
     Icon: AutomationIcon,
     category: "Automation",
@@ -153,18 +153,155 @@ const SERVICES = [
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80",
     details: ["Form-to-email automation", "Database sync on submit", "Custom admin dashboards"],
   },
+  {
+    id: "seo",
+    title: "SEO Strategy & Implementation",
+    description: "Search-focused technical foundations and content structure that help the right audience discover your website.",
+    Icon: BriefcaseIcon,
+    category: "Marketing",
+    metric: "Search Ready",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    details: ["Technical SEO foundations", "Search-friendly page structure", "Performance and visibility review"],
+  },
+  {
+    id: "ai-integration-service",
+    title: "AI Integration",
+    description: "Useful AI capabilities connected to your website, product, or internal workflow with clear human control.",
+    Icon: AutomationIcon,
+    category: "Automation",
+    metric: "Practical AI",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=80",
+    details: ["AI feature planning", "Model and API integration", "Reliable output workflows"],
+  },
+  {
+    id: "ai-agents-integration",
+    title: "AI Agents Integration",
+    description: "Task-focused AI agents that connect tools, follow defined workflows, and support your team without unnecessary complexity.",
+    Icon: ChatIcon,
+    category: "Automation",
+    metric: "Workflow Agents",
+    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1000&q=80",
+    details: ["Agent workflow design", "Tool and data connections", "Guardrails and handoff logic"],
+  },
+  {
+    id: "marketing",
+    title: "Digital Marketing",
+    description: "Clear digital marketing foundations that connect your website, message, and audience to measurable goals.",
+    Icon: BriefcaseIcon,
+    category: "Marketing",
+    metric: "Growth Focused",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
+    details: ["Digital presence planning", "Campaign-ready landing pages", "Conversion-focused messaging"],
+  },
+  {
+    id: "database-integration",
+    title: "Database Integration",
+    description: "Secure connections between your application, data sources, and business workflows for reliable information flow.",
+    Icon: MaintainIcon,
+    category: "Data",
+    metric: "Connected Data",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1000&q=80",
+    details: ["Database connection planning", "Secure data synchronization", "Reliable read and write workflows"],
+  },
+  {
+    id: "frontend-development",
+    title: "Frontend Development",
+    description: "Responsive, accessible interfaces built for clarity, speed, and consistent behavior across modern devices.",
+    Icon: CustomSiteIcon,
+    category: "Development",
+    metric: "Responsive UI",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80",
+    details: ["Component-based interfaces", "Responsive layouts", "Accessible interaction patterns"],
+  },
+  {
+    id: "backend-development",
+    title: "Backend Development",
+    description: "Dependable server-side systems, APIs, and data workflows designed to support real business operations.",
+    Icon: MaintainIcon,
+    category: "Development",
+    metric: "Reliable Systems",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
+    details: ["API and server architecture", "Authentication and permissions", "Database-backed workflows"],
+  },
+  {
+    id: "full-stack-development",
+    title: "Full Stack Development",
+    description: "End-to-end product development connecting polished interfaces, backend services, databases, and deployment.",
+    Icon: AutomationIcon,
+    category: "Development",
+    metric: "End-to-End Build",
+    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=1000&q=80",
+    details: ["Frontend and backend delivery", "Integrated data architecture", "Production deployment support"],
+  },
+  {
+    id: "mern-stack-development",
+    title: "MERN Stack Development",
+    description: "Modern JavaScript applications built with MongoDB, Express.js, React, and Node.js as one cohesive stack.",
+    Icon: CustomSiteIcon,
+    category: "Development",
+    metric: "MERN Applications",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80",
+    details: ["MongoDB data modeling", "Express and Node.js APIs", "React application interfaces"],
+  },
+  {
+    id: "data-optimization",
+    title: "Data Optimization",
+    description: "Better-organized data and faster workflows through thoughtful modeling, cleanup, indexing, and reporting foundations.",
+    Icon: AutomationIcon,
+    category: "Data",
+    metric: "Efficient Data",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    details: ["Data structure review", "Query and workflow optimization", "Scalable reporting foundations"],
+  },
+  {
+    id: "content-writing",
+    title: "Blogging & Content Writing",
+    description: "Clear, useful content that explains your value, supports SEO, and gives your audience a reason to trust your brand.",
+    Icon: ChatIcon,
+    category: "Marketing",
+    metric: "Clear Messaging",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdevd2b?auto=format&fit=crop&w=1000&q=80",
+    details: ["Blog and article writing", "Website service copy", "SEO-aware content structure"],
+  },
+  {
+    id: "ai-automation-tools",
+    title: "AI & Automation Tools",
+    description: "Practical tool selection and workflow automation that removes repetitive steps while keeping your processes understandable.",
+    Icon: AutomationIcon,
+    category: "Automation",
+    metric: "Smarter Workflows",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    details: ["Tool and workflow audit", "Automation implementation", "Handoff and documentation"],
+  },
 ];
 
-const TECH_CATEGORIES = ["All", "Frontend", "Backend"];
+const TECH_CATEGORIES = ["All", "Frontend", "Backend", "Data", "AI & Automation", "Tools & Integration", "Growth & Content"];
 
 const TECH_STACK = [
-  { id: "html5", label: "HTML5", role: "Semantic markup", category: "Frontend" },
-  { id: "css3", label: "CSS3", role: "Layout & motion", category: "Frontend" },
   { id: "javascript", label: "JavaScript", role: "Interactive logic", category: "Frontend" },
-  { id: "react", label: "React.js", role: "Component UI", category: "Frontend" },
-  { id: "tailwind", label: "Tailwind CSS", role: "Utility-first styling", category: "Frontend" },
-  { id: "firebase", label: "Firebase", role: "Auth & real-time data", category: "Backend" },
-  { id: "supabase", label: "Supabase", role: "Postgres backend", category: "Backend" },
+  { id: "python", label: "Python", role: "Application development", category: "Backend" },
+  { id: "cpp", label: "C++", role: "High-performance programming", category: "Backend" },
+  { id: "react", label: "React", role: "Component UI", category: "Frontend" },
+  { id: "ai-integration", label: "AI Integration", role: "Connected AI features", category: "AI & Automation" },
+  { id: "nodejs", label: "Node.js", role: "Server-side JavaScript", category: "Backend" },
+  { id: "express", label: "Express.js", role: "API development", category: "Backend" },
+  { id: "django", label: "Django", role: "Python web framework", category: "Backend" },
+  { id: "mongodb", label: "MongoDB", role: "Document database", category: "Data" },
+  { id: "firebase", label: "Firebase", role: "Auth & real-time data", category: "Data" },
+  { id: "supabase", label: "Supabase", role: "Postgres backend", category: "Data" },
+  { id: "database-design", label: "Database Design", role: "Scalable data architecture", category: "Data" },
+  { id: "prompt-engineering", label: "Prompt Engineering", role: "Reliable AI instruction design", category: "AI & Automation" },
+  { id: "ai-tools-workflows", label: "AI Tools & Workflows", role: "Practical AI automation", category: "AI & Automation" },
+  { id: "tailwind-css", label: "Tailwind CSS", role: "Utility-first styling", category: "Tools & Integration" },
+  { id: "bootstrap", label: "Bootstrap", role: "Responsive UI framework", category: "Tools & Integration" },
+  { id: "postman", label: "Postman", role: "API testing & development", category: "Tools & Integration" },
+  { id: "git-github", label: "Git & GitHub", role: "Version control & collaboration", category: "Tools & Integration" },
+  { id: "seo", label: "SEO", role: "Search visibility", category: "Growth & Content" },
+  { id: "website-optimization", label: "Website Optimization", role: "Speed & conversion", category: "Growth & Content" },
+  { id: "website-consulting", label: "Website Consulting", role: "Technical direction", category: "Growth & Content" },
+  { id: "blogging-content", label: "Blogging & Content Writing", role: "Clear, useful content", category: "Growth & Content" },
+  { id: "html", label: "HTML", role: "Semantic markup", category: "Frontend" },
+  { id: "css", label: "CSS", role: "Layout & motion", category: "Frontend" },
 ];
 
 const WHY_CHOOSE_US = [
@@ -521,15 +658,7 @@ export default function Services() {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">Who We Are</p>
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Avenzo Studio, in one paragraph</h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-neutral-400 sm:text-lg">
-            Avenzo Studio is a web development agency founded in 2019, specializing in custom websites,
-            personal portfolios, e-commerce platforms, business websites, and automated web solutions built
-            around each client's actual business — not squeezed into a template. Every project is engineered
-            on a modern, production-grade stack — HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Firebase,
-            and Supabase — and delivered through a disciplined four-stage process: Discovery, Design,
-            Development, and Launch. Across 2+ years of hands-on engineering, we've shipped 10+ projects for
-            holding a 99.9% uptime guarantee. Clients retain full ownership of
-            their source code, communicate directly with the engineers building their site, and receive
-            clean, documented code built to be maintained and extended long after launch.
+            Founded in 2024, Avenzo Studio builds custom websites, portfolios, e-commerce stores, business platforms, and automated digital solutions around each client&apos;s real goals. Our capabilities span JavaScript, Python, C++, React, AI Integration, Node.js, Express.js, MongoDB, Firebase, Supabase, Prompt Engineering, AI Tools &amp; Workflows, Tailwind CSS, Bootstrap, Postman, Git &amp; GitHub, SEO, Website Optimization, Website Consulting, Blogging &amp; Content Writing, HTML, CSS, Django, and Database Design. We have delivered 10+ projects through a focused Discovery, Design, Development, and Launch process, with a 100% uptime guarantee, direct engineering communication, complete source-code ownership, and clean documentation for long-term maintenance.
           </p>
         </div>
       </section>
@@ -540,7 +669,7 @@ export default function Services() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-lg">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9A94E]">What We Build</p>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Five services, scoped and quoted on their own</h2>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">AVENZO STUDIO Services</h2>
             </div>
             <PillFilter options={SERVICE_CATEGORIES} active={serviceFilter} onChange={setServiceFilter} />
           </div>

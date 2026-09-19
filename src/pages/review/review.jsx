@@ -94,7 +94,7 @@ const PROJECT_DATES = [
   "2019-11-18", "2019-08-10", "2019-04-25"
 ];
 
-// Generate exactly 33 unique reviews mapped to realistic historical dates
+// Generate exactly 32 unique reviews mapped to realistic historical dates
 const GENERATED_REVIEWS = Array.from({ length: 33 }, (_, i) => {
   const firstName = FIRST_NAMES[i];
   const lastName = LAST_NAMES[(i * 7) % LAST_NAMES.length];
@@ -121,11 +121,11 @@ const GENERATED_REVIEWS = Array.from({ length: 33 }, (_, i) => {
     helpfulCount: Math.floor(Math.sin(i + 1) * 10) + 8,
     createdAt: { toDate: () => reviewDate }
   };
-});
+}).filter((review) => review.name !== "Hira Abbasi");
 
 const BASE_STATS = {
-  totalCount: 33,
-  count5Star: 29,
+  totalCount: 32,
+  count5Star: 28,
   count4Star: 4,
   count3Star: 0,
   count2Star: 0,
@@ -395,7 +395,7 @@ export default function Review() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm text-neutral-400 sm:text-base">
-            Verified reviews and platform outcomes from engineering leaders and startup founders partnering with AVENZO STUDIO since 2019.
+            Verified reviews and platform outcomes from engineering leaders and startup founders partnering with AVENZO STUDIO since 2024.
           </p>
 
           {/* Key Metrics Banner */}

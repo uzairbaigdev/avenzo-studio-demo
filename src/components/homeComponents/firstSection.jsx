@@ -7,13 +7,19 @@ const STATS = [
   { value: "2+", label: "Years building software" },
 ];
 
-const TECH_STACK = ["HTML", "CSS", "JavaScript", "React", "Firebase", "Tailwind CSS", "Git", "GitHub"];
+const TECH_STACK = [
+  "JavaScript", "Python", "C++", "React", "AI Integration", "Node.js", "Express.js", "MongoDB",
+  "Firebase", "Supabase", "Prompt Engineering", "AI Tools & Workflows", "Tailwind CSS", "Bootstrap",
+  "Postman", "Git & GitHub", "SEO",
+  "Website Optimization", "Website Consulting", "Blogging & Content Writing", "HTML",
+  "CSS", "Django", "Database Design"
+];
 
 const FLOATING_BADGES = [
-  { label: "React", top: "6%", left: "-8%", duration: 5, delay: 0 },
-  { label: "Firebase", top: "68%", left: "-12%", duration: 6, delay: 0.6 },
-  { label: "JavaScript", top: "-6%", left: "62%", duration: 5.5, delay: 1.1 },
-  { label: "Tailwind CSS", top: "78%", left: "70%", duration: 6.5, delay: 0.3 },
+  { label: "JavaScript", top: "-6%", left: "62%", duration: 5.5, delay: 0 },
+  { label: "Python", top: "68%", left: "-12%", duration: 6, delay: 0.6 },
+  { label: "C++", top: "78%", left: "70%", duration: 6.5, delay: 0.3 },
+  { label: "React", top: "6%", left: "-8%", duration: 5, delay: 1.1 },
 ];
 
 const METRIC_BARS = [0.4, 0.75, 0.5, 0.9, 0.35, 0.65];

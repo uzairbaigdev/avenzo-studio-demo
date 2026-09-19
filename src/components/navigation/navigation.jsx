@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { label: "Price", path: "/pricing" },
   { label: "Contact", path: "/contact" },
   { label: "Review", path: "/review" },
+  { label: "FAQ", path: "/faq" },
 ];
 
 export default function Navigation() {

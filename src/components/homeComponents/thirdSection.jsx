@@ -94,7 +94,7 @@ const XIcon = (props) => (
 
 /* ---------- Core Services & Specific Stack Data ---------- */
 
-const ALL_ITEMS = [
+const CORE_ITEMS = [
   {
     id: "business-website",
     name: "Business Website",
@@ -239,6 +239,45 @@ const ALL_ITEMS = [
     caseStudy: "Maintained structured, well-documented codebases for seamless collaboration."
   }
 ];
+
+const SKILL_ITEMS = [
+  ["JavaScript", "Dynamic Logic", "Interactive web applications with modern, maintainable JavaScript.", "ES6+ application logic"],
+  ["Python", "Versatile Backend", "Reliable Python solutions for automation, data workflows, and web applications.", "Python application development"],
+  ["C++", "High Performance", "Efficient C++ development for performance-focused software and systems.", "Performance-focused programming"],
+  ["React", "Component UI", "Fast, reusable interfaces and scalable React application architecture.", "Reusable React component systems"],
+  ["AI Integration", "Connected AI Features", "Practical AI capabilities integrated into websites, products, and business workflows.", "Purpose-built AI product integration"],
+  ["Node.js", "Server-Side JavaScript", "Scalable backend services and real-time application infrastructure with Node.js.", "Production-ready Node.js services"],
+  ["Express.js", "API Development", "Clean, secure REST APIs and backend routing built with Express.js.", "Structured Express.js API design"],
+  ["MongoDB", "Document Database", "Flexible document data models designed for reliable application growth.", "Scalable MongoDB data structures"],
+  ["Firebase", "Realtime Backend", "Authentication, real-time data, cloud functions, and hosting through Firebase.", "Secure Firebase integrations"],
+  ["Supabase", "Postgres Backend", "Modern database, authentication, storage, and API workflows with Supabase.", "Supabase-powered application backends"],
+  ["Prompt Engineering", "AI Instruction Design", "Clear, reliable prompts designed for consistent and useful AI output.", "Purpose-built prompt systems"],
+  ["AI Tools & Workflows", "Practical AI Automation", "AI-assisted workflows that reduce repetitive work and improve delivery speed.", "Connected AI workflow automation"],
+  ["Tailwind CSS", "Utility-First Styling", "Fast, consistent, and responsive interface styling with Tailwind CSS.", "Scalable Tailwind design systems"],
+  ["Bootstrap", "Responsive UI Framework", "Reliable responsive layouts and interface components built with Bootstrap.", "Responsive Bootstrap interfaces"],
+  ["Postman", "API Testing", "Thorough API testing and documentation for dependable integrations and backend services.", "Verified API request workflows"],
+  ["Git & GitHub", "Version Control", "Organized source control, collaboration, and delivery workflows with Git and GitHub.", "Structured GitHub repositories"],
+  ["SEO", "Search Visibility", "Technical and content foundations that help websites earn relevant search traffic.", "Search-ready website structure"],
+  ["Website Optimization", "Speed & Conversion", "Performance, accessibility, and conversion improvements for stronger user experiences.", "Measured website performance improvements"],
+  ["Website Consulting", "Technical Direction", "Practical guidance for choosing the right website strategy, tools, and architecture.", "Clear technical recommendations"],
+  ["Blogging & Content Writing", "Content That Connects", "Useful, structured content that communicates expertise and supports growth.", "Audience-focused written content"],
+  ["HTML", "Semantic Structure", "Accessible, search-friendly markup that gives every page a strong foundation.", "Semantic HTML implementation"],
+  ["CSS", "Responsive Styling", "Responsive layouts and polished visual systems built for every screen size.", "Responsive CSS systems"],
+  ["Django", "Python Web Framework", "Structured Django applications with maintainable models, views, and workflows.", "Django web application foundations"],
+  ["Database Design", "Data Architecture", "Clear, scalable data models designed around real product requirements.", "Future-ready database schemas"],
+].map(([name, metric, description, caseStudy], index) => ({
+  id: `skill-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+  name,
+  metric,
+  Icon: name === "Database Design" || name === "MongoDB" || name === "Firebase" || name === "Supabase" ? DatabaseIcon : Code2Icon,
+  color: index < 4 ? "text-[#D9A94E]" : "text-[#38BDF8]",
+  highlight: index < 4,
+  description,
+  deliverables: ["Professional implementation", "Maintainable architecture", "Production-ready delivery"],
+  caseStudy,
+}));
+
+const ALL_ITEMS = [...SKILL_ITEMS, ...CORE_ITEMS];
 
 export default function CapabilitiesSection() {
   const [selectedItem, setSelectedItem] = useState(null);

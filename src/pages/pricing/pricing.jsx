@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "../../components/navigation/navigation.jsx";
 import Loader from "../../components/loader/loader.jsx";
+import SixthSection from "../../components/homeComponents/sixthSection.jsx";
 
 /* ---------- SHARED ICON PRIMITIVES ---------- */
 
@@ -55,9 +56,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "1. Portfolio Websites",
     categorySubtitle: "Engineered for creators, artists, models, and executives to present work professionally.",
     tiers: [
-      { name: "Normal", price: "$54 USD" },
-      { name: "Standard", price: "$108 USD", recommended: true },
-      { name: "Premium", price: "$180 USD" },
+      { name: "Normal", price: "$5.40 USD" },
+      { name: "Standard", price: "$10.80 USD", recommended: true },
+      { name: "Premium", price: "$18 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "3 Days", standard: "5 Days", premium: "8 Days" },
@@ -77,9 +78,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "2. Business Websites",
     categorySubtitle: "Corporate and service company websites built to build authority and convert leads.",
     tiers: [
-      { name: "Normal", price: "$126 USD" },
-      { name: "Standard", price: "$252 USD", recommended: true },
-      { name: "Premium", price: "$432 USD" },
+      { name: "Normal", price: "$12.60 USD" },
+      { name: "Standard", price: "$25.20 USD", recommended: true },
+      { name: "Premium", price: "$43.20 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "5 Days", standard: "10 Days", premium: "18 Days" },
@@ -100,9 +101,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "3. Custom Web Applications",
     categorySubtitle: "Bespoke React web applications hand-coded from scratch to your exact functional spec.",
     tiers: [
-      { name: "Normal", price: "$216 USD" },
-      { name: "Standard", price: "$432 USD", recommended: true },
-      { name: "Premium", price: "$791 USD" },
+      { name: "Normal", price: "$21.60 USD" },
+      { name: "Standard", price: "$43.20 USD", recommended: true },
+      { name: "Premium", price: "$79.10 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "7 Days", standard: "14 Days", premium: "25 Days" },
@@ -122,9 +123,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "4. E-Commerce Stores",
     categorySubtitle: "Conversion-optimized digital storefronts engineered to sell products seamlessly.",
     tiers: [
-      { name: "Normal", price: "$162 USD" },
-      { name: "Standard", price: "$324 USD", recommended: true },
-      { name: "Premium", price: "$576 USD" },
+      { name: "Normal", price: "$16.20 USD" },
+      { name: "Standard", price: "$32.40 USD", recommended: true },
+      { name: "Premium", price: "$57.60 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "7 Days", standard: "12 Days", premium: "20 Days" },
@@ -144,9 +145,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "5. Web Automation & Workflows",
     categorySubtitle: "Automate manual tasks, sync databases, and streamline customer pipelines.",
     tiers: [
-      { name: "Normal", price: "$90 USD" },
-      { name: "Standard", price: "$180 USD", recommended: true },
-      { name: "Premium", price: "$342 USD" },
+      { name: "Normal", price: "$9 USD" },
+      { name: "Standard", price: "$18 USD", recommended: true },
+      { name: "Premium", price: "$34.20 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "4 Days", standard: "8 Days", premium: "14 Days" },
@@ -450,6 +451,8 @@ export default function Pricing() {
           </a>
         </div>
       </section>
+
+      <SixthSection />
     </main>
   );
 }

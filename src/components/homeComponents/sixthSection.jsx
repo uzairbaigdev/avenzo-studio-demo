@@ -103,11 +103,18 @@ export default function SixthSection() {
 
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-white mb-3">Technologies</p>
-              <ul className="space-y-2 text-xs text-neutral-400">
-                <li><a href="#" className="hover:text-[#D9A94E] transition-colors">React &amp; Next.js</a></li>
-                <li><a href="#" className="hover:text-[#D9A94E] transition-colors">Tailwind CSS</a></li>
-                <li><a href="#" className="hover:text-[#D9A94E] transition-colors">Node &amp; Express</a></li>
-                <li><a href="#" className="hover:text-[#D9A94E] transition-colors">PostgreSQL &amp; Redis</a></li>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-neutral-400">
+                {[
+                  "JavaScript", "Python", "C++", "React", "AI Integration", "Node.js", "Express.js", "MongoDB",
+                  "Firebase", "Supabase", "Prompt Engineering", "AI Tools & Workflows", "Tailwind CSS", "Bootstrap",
+                  "Postman", "Git & GitHub", "SEO",
+                  "Website Optimization", "Website Consulting", "Blogging & Content Writing", "HTML",
+                  "CSS", "Django", "Database Design"
+                ].map((skill) => (
+                  <li key={skill}>
+                    <a href="#" className="hover:text-[#D9A94E] transition-colors">{skill}</a>
+                  </li>
+                ))}
               </ul>
             </div>
 
