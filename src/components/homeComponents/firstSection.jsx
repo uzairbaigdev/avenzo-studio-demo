@@ -255,26 +255,6 @@ export default function FirstSection() {
           </p>
 
           <div
-            className="avenzo-fade-up mt-8 flex flex-wrap items-center gap-4"
-            style={{ animationDelay: "0.35s" }}
-          >
-            <a
-              href="#"
-              className="group relative inline-flex h-12 items-center justify-center rounded-full p-[1px] bg-gradient-to-r from-[#F3CE8E] via-[#D9A94E] to-[#8a6a2c] shadow-[0_6px_24px_rgba(217,169,78,0.3)] transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              <span className="flex h-full w-full items-center justify-center rounded-full bg-black px-7 text-sm font-medium text-[#F0C382] transition-colors duration-200 group-hover:bg-transparent group-hover:text-[#141008]">
-                Get in touch
-              </span>
-            </a>
-            <a
-              href="#"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 px-7 text-sm font-medium text-neutral-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/5"
-            >
-              View our work
-            </a>
-          </div>
-
-          <div
             className="avenzo-fade-up mt-12 flex flex-wrap items-center gap-x-10 gap-y-6"
             style={{ animationDelay: "0.5s" }}
           >
