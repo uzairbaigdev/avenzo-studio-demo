@@ -650,7 +650,7 @@ export default function SecondSection() {
         </div>
 
         {/* ---------- mobile / tablet fallback: simple step list ---------- */}
-        <div className="relative mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:hidden">
+        <div className="relative mt-16 grid grid-cols-1 gap-6 lg:hidden">
           {PROCESS_STEPS.map((step, i) => (
             <div
               key={step.id}
