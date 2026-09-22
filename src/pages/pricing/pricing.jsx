@@ -56,9 +56,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "1. Portfolio Websites",
     categorySubtitle: "Engineered for creators, artists, models, and executives to present work professionally.",
     tiers: [
-      { name: "Normal", price: "$8.32 USD" },
-      { name: "Standard", price: "$16.63 USD", recommended: true },
-      { name: "Premium", price: "$27.72 USD" },
+      { name: "Normal", price: "$44.92 USD" },
+      { name: "Standard", price: "$89.82 USD", recommended: true },
+      { name: "Premium", price: "$149.68 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "3 Days", standard: "5 Days", premium: "8 Days" },
@@ -78,9 +78,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "2. Business Websites",
     categorySubtitle: "Corporate and service company websites built to build authority and convert leads.",
     tiers: [
-      { name: "Normal", price: "$19.40 USD" },
-      { name: "Standard", price: "$38.81 USD", recommended: true },
-      { name: "Premium", price: "$66.53 USD" },
+      { name: "Normal", price: "$104.76 USD" },
+      { name: "Standard", price: "$209.60 USD", recommended: true },
+      { name: "Premium", price: "$359.28 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "5 Days", standard: "10 Days", premium: "18 Days" },
@@ -101,9 +101,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "3. Custom Web Applications",
     categorySubtitle: "Bespoke React web applications hand-coded from scratch to your exact functional spec.",
     tiers: [
-      { name: "Normal", price: "$33.26 USD" },
-      { name: "Standard", price: "$66.53 USD", recommended: true },
-      { name: "Premium", price: "$121.81 USD" },
+      { name: "Normal", price: "$179.60 USD" },
+      { name: "Standard", price: "$359.28 USD", recommended: true },
+      { name: "Premium", price: "$657.80 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "7 Days", standard: "14 Days", premium: "25 Days" },
@@ -123,9 +123,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "4. E-Commerce Stores",
     categorySubtitle: "Conversion-optimized digital storefronts engineered to sell products seamlessly.",
     tiers: [
-      { name: "Normal", price: "$24.95 USD" },
-      { name: "Standard", price: "$49.90 USD", recommended: true },
-      { name: "Premium", price: "$88.70 USD" },
+      { name: "Normal", price: "$134.74 USD" },
+      { name: "Standard", price: "$269.46 USD", recommended: true },
+      { name: "Premium", price: "$478.98 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "7 Days", standard: "12 Days", premium: "20 Days" },
@@ -145,9 +145,9 @@ const SERVICE_CATEGORIES = [
     categoryTitle: "5. Web Automation & Workflows",
     categorySubtitle: "Automate manual tasks, sync databases, and streamline customer pipelines.",
     tiers: [
-      { name: "Normal", price: "$13.86 USD" },
-      { name: "Standard", price: "$27.72 USD", recommended: true },
-      { name: "Premium", price: "$52.67 USD" },
+      { name: "Normal", price: "$74.84 USD" },
+      { name: "Standard", price: "$149.68 USD", recommended: true },
+      { name: "Premium", price: "$284.44 USD" },
     ],
     features: [
       { name: "Delivery Time", normal: "4 Days", standard: "8 Days", premium: "14 Days" },
